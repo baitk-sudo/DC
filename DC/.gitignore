@@ -1,0 +1,17 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temp
+*.tmp
+*.bak
+*.log
+
+# Excel temp (optional, remove if you want to track xlsx)
+# *.xlsx
