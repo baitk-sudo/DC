@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>数字化信贷系统 — 组件设计与产品流程</title>
-  <!-- Theme CSS: keep CDN, allow duplicates for resilience -->
+  <title>数字化信贷系统 — 汇报版导航</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="https://unpkg.com/docsify@4/lib/themes/vue.css">
 </head>
@@ -12,26 +11,21 @@
   <div id="app">加载中…</div>
   <script>
     (function () {
-      // Docsify cannot reliably run from file:// due to XHR restrictions.
       if (window.location.protocol === 'file:') {
         document.getElementById('app').innerHTML = [
           '<h3>无法加载：请通过本地 HTTP 服务打开</h3>',
           '<p>你现在是 <code>file://</code> 方式打开，Docsify 无法读取 Markdown。</p>',
-          '<p>在 <code>DC</code> 目录执行以下任一命令，然后用浏览器访问：<code>http://127.0.0.1:3000/index.html?view=report#/</code></p>',
+          '<p>在 <code>DC</code> 目录执行以下任一命令，然后访问：</p>',
+          '<p><code>http://127.0.0.1:3000/index-report.html#/</code></p>',
           '<pre><code>python -m http.server 3000</code></pre>',
-          '<pre><code>py -m http.server 3000</code></pre>',
-          '<p>如果公司网络拦截 CDN，请换个网络或在控制台看脚本加载错误。</p>'
+          '<pre><code>py -m http.server 3000</code></pre>'
         ].join('');
         return;
       }
 
-      const params = new URLSearchParams(window.location.search || '');
-      const viewRaw = (params.get('view') || '').toLowerCase();
-      const view = viewRaw === 'report' ? 'report' : 'impl';
-
       window.$docsify = {
         name: '数字化信贷系统',
-        loadSidebar: view === 'report' ? 'sidebar-report.md' : 'sidebar-impl.md',
+        loadSidebar: 'sidebar-report.md',
         loadNavbar: 'navbar.md',
         subMaxLevel: 3,
         homepage: 'README.md',
@@ -46,6 +40,7 @@
       };
     })();
   </script>
+
   <script>
     (function () {
       function loadScriptWithFallback(urls, done) {
@@ -72,7 +67,6 @@
         tryNext();
       }
 
-      // Load docsify core then search plugin, each with CDN fallbacks
       loadScriptWithFallback(
         [
           'https://cdn.jsdelivr.net/npm/docsify@4',
@@ -91,3 +85,4 @@
   </script>
 </body>
 </html>
+
