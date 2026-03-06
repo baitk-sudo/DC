@@ -12,3 +12,8 @@ Thumbs.db
 *.tmp
 *.bak
 *.log
+
+# Dependencies / build
+node_modules/
+**/node_modules/
+NetMessage/node_modules/
