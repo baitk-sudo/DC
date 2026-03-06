@@ -27,14 +27,14 @@
 
       const params = new URLSearchParams(window.location.search || '');
       const viewRaw = (params.get('view') || '').toLowerCase();
-      const view = viewRaw === 'report' ? 'report' : 'impl';
+      const view = viewRaw === 'impl' ? 'impl' : 'report';
 
       window.$docsify = {
         name: '数字化信贷系统',
         loadSidebar: view === 'report' ? 'sidebar-report.md' : 'sidebar-impl.md',
         loadNavbar: 'navbar.md',
         subMaxLevel: 3,
-        homepage: 'README.md',
+        homepage: view === 'report' ? '总览-核心概念与状态事件.md' : 'README.md',
         search: 'auto',
         searchPlaceholder: '搜索文档…',
         formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}',
