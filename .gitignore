@@ -17,3 +17,6 @@ Thumbs.db
 node_modules/
 **/node_modules/
 NetMessage/node_modules/
+
+# 仅推送 DC，不推送 NetMessage
+NetMessage/
